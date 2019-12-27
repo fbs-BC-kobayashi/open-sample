@@ -1,0 +1,2 @@
+root: C:\Users\100317\nvm
+path: C:\Users\100317\nvm
