@@ -1,0 +1,43 @@
+<div fxLayout="column" highlight="4-9">
+    <div fxFlex="100px">
+        <div fxLayout="row" style="height: 75px">
+            <div fxFlex fxLayoutAlign="center center">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="商品名" disabled value="牛乳">
+                </mat-form-field>
+            </div>
+            <div fxFlex fxLayoutAlign="center center">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="賞品ID" disabled value="A001">
+                </mat-form-field>
+            </div>
+            <div fxFlex fxLayoutAlign="center center">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="サイズ" disabled value="1kg">
+                </mat-form-field>
+            </div>
+            <div fxFlex fxFlexFill fxLayoutAlign="center center">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="価格" disabled value="150">
+                </mat-form-field>
+            </div>
+            <div fxFlex fxLayoutAlign="center center">
+                <mat-form-field>
+                    <input matInput placeholder="備考" disabled value="乳製品">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" style="height: 75px">
+                <div fxFlex fxFlexFill fxLayoutAlign="end center">
+                    <button mat-raised-button color="default" (click)="init()">
+                        更新する
+                    </button>
+                </div>
+                <div fxFlex fxFlexFill fxLayoutAlign="end center">
+                    <button mat-raised-button color="default" (click)="init()">
+                        一覧画面へ戻る
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

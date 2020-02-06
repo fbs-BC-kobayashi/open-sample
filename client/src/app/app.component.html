@@ -1,0 +1,20 @@
+<div>
+  <div class="block-header">
+    <p>Routing によるページ切り替えの動作確認を行う</p>
+  </div>
+
+  <div class="block-body">
+    <ul>
+      <!-- routing のためのリンク. routerLink に app.module.ts で定義したテーブル: ROUTE_TABLE に登録した path をセットする -->
+      <li><a routerLink="/login">ログイン画面に遷移</a></li>
+      <li><a routerLink="/goods/create">賞品登録画面に遷移</a></li>
+      <li><a routerLink="/goods/update">賞品更新に遷移</a></li>
+      <li><a routerLink="/goods/details">賞品詳細に遷移</a></li>
+      <li><a routerLink="/goods/list">賞品一覧に遷移</a></li>
+      <li><a routerLink="/goods">トップページに遷移</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- routing で呼び出されたページは router-outlet で確保された領域に反映される -->
+<router-outlet></router-outlet>
