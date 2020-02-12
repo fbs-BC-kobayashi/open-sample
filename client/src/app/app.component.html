@@ -1,11 +1,17 @@
-<div>
-  <div class="block-header">
-    <p>Routing によるページ切り替えの動作確認を行う</p>
-  </div>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let link of navLinks"
+     [routerLink]="['/'+link.path]"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{link.label}}
+  </a>
+</nav>
 
+<!--
   <div class="block-body">
     <ul>
-      <!-- routing のためのリンク. routerLink に app.module.ts で定義したテーブル: ROUTE_TABLE に登録した path をセットする -->
+       routing のためのリンク. routerLink に app.module.ts で定義したテーブル: ROUTE_TABLE に登録した path をセットする 
       <li><a routerLink="/login">ログイン画面に遷移</a></li>
       <li><a routerLink="/goods/create">賞品登録画面に遷移</a></li>
       <li><a routerLink="/goods/update">賞品更新に遷移</a></li>
@@ -15,6 +21,7 @@
     </ul>
   </div>
 </div>
+-->
 
 <!-- routing で呼び出されたページは router-outlet で確保された領域に反映される -->
 <router-outlet></router-outlet>

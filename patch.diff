@@ -1,0 +1,108 @@
+From 7ebd4bc90b7678372fefb056637dd987e1e11656 Mon Sep 17 00:00:00 2001
+From: BuildTools <unconfigured@null.spigotmc.org>
+Date: Sat, 8 Feb 2020 17:37:03 +0900
+Subject: [PATCH] =?UTF-8?q?=E7=94=BB=E9=9D=A2=E8=B3=87=E6=9D=90=E3=82=92se?=
+ =?UTF-8?q?rver=E3=81=A7=E8=A1=A8=E7=A4=BA=E3=81=A7=E3=81=8D=E3=82=8B?=
+ =?UTF-8?q?=E3=82=88=E3=81=86=E4=BF=AE=E6=AD=A3?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ .gitignore           | 1 +
+ client/angular.json  | 2 +-
+ server/package.json  | 4 ++--
+ server/src/server.ts | 8 ++++----
+ server/tsconfig.json | 2 +-
+ 5 files changed, 9 insertions(+), 8 deletions(-)
+
+diff --git a/.gitignore b/.gitignore
+index 6704566..eb2a8cd 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -81,6 +81,7 @@ typings/
+ # Nuxt.js build / generate output
+ .nuxt
+ dist
++front
+ 
+ # Gatsby files
+ .cache/
+diff --git a/client/angular.json b/client/angular.json
+index b3a28a5..39f26f9 100644
+--- a/client/angular.json
++++ b/client/angular.json
+@@ -13,7 +13,7 @@
+         "build": {
+           "builder": "@angular-devkit/build-angular:browser",
+           "options": {
+-            "outputPath": "dist/client",
++            "outputPath": "../server/front",
+             "index": "src/index.html",
+             "main": "src/main.ts",
+             "polyfills": "src/polyfills.ts",
+diff --git a/server/package.json b/server/package.json
+index 28a9c12..9ad3a11 100644
+--- a/server/package.json
++++ b/server/package.json
+@@ -4,8 +4,8 @@
+   "description": "",
+   "main": "server.js",
+   "scripts": {
+-    "start": "node dist/server.js",
+-    "dev": "nodemon --watch ../client/dist/ --watch . server.js"
++    "start": "node dist/server",
++    "build": "tsc"
+   },
+   "author": "",
+   "license": "ISC",
+diff --git a/server/src/server.ts b/server/src/server.ts
+index 210a263..130b2f7 100644
+--- a/server/src/server.ts
++++ b/server/src/server.ts
+@@ -4,7 +4,7 @@ import * as BodyParser from 'body-parser';
+ import article from './routes/article';
+ import auth from './routes/auth';
+ import dev from './routes/dev';
+-import ang from '../../client/src/app/login/login.component';
++// import ang from '../../client/src/app/login/login.component';
+ 
+ 
+ 
+@@ -12,7 +12,7 @@ import ang from '../../client/src/app/login/login.component';
+ const listEndpoints = require('express-list-endpoints');//新規
+ 
+ const app = Express();
+-
++app.use(Express.static('front'));
+ app.use(BodyParser.urlencoded({ extended: true }));
+ app.use(BodyParser.json());
+ /*
+@@ -26,8 +26,8 @@ app.use((req, res) => {
+ //let url = "../../client/dist/";
+ 
+ 
+-app.use('/ang' ang);
+-app.listen(3000, function(){
++// app.use('/ang' ang);
++app.listen(3000, function () {
+   console.log("http://localhost:3000");
+ });
+ export default app;
+\ No newline at end of file
+diff --git a/server/tsconfig.json b/server/tsconfig.json
+index 426477a..da7906e 100644
+--- a/server/tsconfig.json
++++ b/server/tsconfig.json
+@@ -3,7 +3,7 @@
+       "experimentalDecorators": true,
+         "outDir": "./dist",
+         "sourceMap": true,
+-        "module": "es6",
++        "module": "CommonJS",
+         "target": "es5",
+         "moduleResolution": "node",
+         "removeComments": true
+-- 
+2.16.2.windows.1
+

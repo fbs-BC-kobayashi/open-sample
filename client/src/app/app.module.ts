@@ -9,6 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatTabsModule} from '@angular/material/tabs';
 // ルーティングによる画面遷移のために必要なモジュール
 import { RouterModule, Routes } from '@angular/router';
 
@@ -19,6 +20,13 @@ import { CreateComponent } from './goods/create/create.component';
 import { UpdateComponent } from './goods/update/update.component';
 import { DetailsComponent } from './goods/details/details.component';
 import { ListComponent } from './goods/list/list.component';
+import { HeroesComponent } from './heroes/heroes.component';
+
+//通信用？
+import { HttpClientModule } from '@angular/common/http';
+// バックエンドとの通信を実際に担当するサービス
+//import { HttpClientService } from './services/http-client.service';
+//import { HttpClientComponent } from './http-client/http-client.component';
 
 // Routing を行う対象のコンポーネントを管理する
 // path にセットした文字列にマッチしたURLが指定されると、対になっているコンポーネントが表示される
@@ -32,7 +40,8 @@ const ROUTE_TABLE: Routes = [
   { path: 'goods/update', component: UpdateComponent },
   { path: 'goods/details', component: DetailsComponent },
   { path: 'goods/list', component: ListComponent },
-  
+  { path: '/hero', component: HeroesComponent },
+
 ];
 
 @NgModule({
@@ -44,6 +53,7 @@ const ROUTE_TABLE: Routes = [
     UpdateComponent,
     DetailsComponent,
     ListComponent,
+//    HttpClientComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,8 +66,11 @@ const ROUTE_TABLE: Routes = [
     MatTableModule,
     MatDatepickerModule,
     MatDividerModule,
+    MatTabsModule,
+    HttpClientModule,
   ],
   providers: [
+//    HttpClientService,
   ],
   bootstrap: [AppComponent]
 })
