@@ -16,7 +16,7 @@ export class AppComponent {
     { path: '/goods/create', label: '登録' },
     { path: '/goods/list', label: '検索' },
     { path: '/login', label: 'ログアウト' },
-    { path: '/hero', label: '公式ヒーロー' },
+    //{ path: '/hero', label: '公式ヒーロー' },
     
   ];
 }

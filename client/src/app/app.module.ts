@@ -20,7 +20,7 @@ import { CreateComponent } from './goods/create/create.component';
 import { UpdateComponent } from './goods/update/update.component';
 import { DetailsComponent } from './goods/details/details.component';
 import { ListComponent } from './goods/list/list.component';
-import { HeroesComponent } from './heroes/heroes.component';
+//import { HeroesComponent } from './heroes/heroes.component';
 
 //通信用？
 import { HttpClientModule } from '@angular/common/http';
@@ -40,7 +40,7 @@ const ROUTE_TABLE: Routes = [
   { path: 'goods/update', component: UpdateComponent },
   { path: 'goods/details', component: DetailsComponent },
   { path: 'goods/list', component: ListComponent },
-  { path: '/hero', component: HeroesComponent },
+  //{ path: 'hero', component: HeroesComponent },
 
 ];
 
@@ -53,6 +53,7 @@ const ROUTE_TABLE: Routes = [
     UpdateComponent,
     DetailsComponent,
     ListComponent,
+  //  HeroesComponent,
 //    HttpClientComponent,
   ],
   imports: [
