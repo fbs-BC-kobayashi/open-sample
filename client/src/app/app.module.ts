@@ -28,11 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 //import { HttpClientService } from './services/http-client.service';
 //import { HttpClientComponent } from './http-client/http-client.component';
 
-// Routing を行う対象のコンポーネントを管理する
-// path にセットした文字列にマッチしたURLが指定されると、対になっているコンポーネントが表示される
-// 下記のように明示する以外にも
-//    '' で [/] のルートパスを指定できる
-//    '**' でワイルドカードを指定できる
+import { FormsModule }   from '@angular/forms';
+
 const ROUTE_TABLE: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'goods', component: GoodsComponent },
@@ -69,6 +66,7 @@ const ROUTE_TABLE: Routes = [
     MatDividerModule,
     MatTabsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
 //    HttpClientService,

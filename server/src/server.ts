@@ -35,13 +35,14 @@ app.param(function (param, option) {
 
 // route to trigger the capture
 app.get('/login', function (req, res) {
-  console.log("頑張れ")//ここでそれぞれのファイルのメソッドを実行して返すと思う。
+  console.log(req)//ここでそれぞれのファイルのメソッドを実行して返すと思う。
   res.send('OK')
 });
 
 // POST method route
 app.post('/login', function (req, res) {
   console.log("頑張れ")//ここでそれぞれのファイルのメソッドを実行して返すと思う。
+  console.log(req.body)
   res.send('POST request to the homepage')
 })
 

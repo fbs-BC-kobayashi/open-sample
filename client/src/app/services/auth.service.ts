@@ -44,32 +44,4 @@ export class AuthService {
       }
     );
   }
-
-  logout() {
-    // LocalStorageに保存したトークンを削除する
-    localStorage.remoteItem('id_token');
-    localStorage.removeItem('expires_at');
-  }
-
-  isLogin(): Boolean {
-    return moment().isBefore(this.getExpiration());
-  }
-
-  getAuthHeader(): string {
-    const token = localStorage.getItem('id_token');
-
-    if (token) {
-      return 'Bearer ' + token;
-    }
-    else {
-      undefined;
-    }
-  }
-
-  private getExpiration(): moment.Moment {
-    const expiration = localStorage.getItem('expires_at');
-    const expiresAt = JSON.parse(expiration);
-
-    return moment(expiresAt);
-  }
 }

@@ -8,7 +8,13 @@ login...
     </div>
   </div>
 </div>
-<button mat-raised-button color="default" (click)="init()">
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="商品名" value="牛乳"  id="goods_name">
+</mat-form-field>
+<button mat-raised-button color="default" (click)="onSubmit()">
+  検索する
+</button>
+<button mat-raised-button color="default" (click)="onPost()">
   検索する
 </button>
 <br><br><br><br>
