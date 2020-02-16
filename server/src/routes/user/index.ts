@@ -1,7 +1,6 @@
-import * as Express from 'express';
+/*import * as Express from 'express';
 import errorJSON from '../../common/errorJSON';
 import mongodbClient from '../../common/mongodbClient';
-import { UserDocument } from '../../documents/UserDocuments';
 
 const router = Express.Router();
 // ユーザの新規作成
@@ -165,4 +164,4 @@ router.delete('/:user', (req, res, next) => {
             }
         });
     });
-});
+});*/

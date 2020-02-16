@@ -13,9 +13,12 @@ export class AppComponent {
   title = 'root';
 
   navLinks = [
+    { path: '/', label: 'トップ画面' },
     { path: '/goods/create', label: '登録' },
     { path: '/goods/list', label: '検索' },
+    { path: '/goods/details', label: '詳細' },
     { path: '/login', label: 'ログアウト' },
+    
     //{ path: '/hero', label: '公式ヒーロー' },
     
   ];

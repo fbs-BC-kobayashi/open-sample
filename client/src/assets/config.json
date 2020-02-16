@@ -1,4 +1,5 @@
 {
     "heroesUrl": "api/heroes",
-    "textfile": "assets/textfile.txt"
+    "textfile": "assets/textfile.txt",
+    "goods_ID":"A001"
   }

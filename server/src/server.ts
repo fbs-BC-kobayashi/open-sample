@@ -1,22 +1,16 @@
 import * as Express from 'express';
-import * as path from 'path';
 import * as BodyParser from 'body-parser';
 import article from './routes/article';
 import auth from './routes/auth';
-import dev from './routes/dev';
-// import ang from '../../client/src/app/login/login.component';
+import db_ope  from './db_ope/index';
 
-
-
-
-const listEndpoints = require('express-list-endpoints');//新規
 
 const app = Express();
 
+var db = new db_ope();
 
 app.use('/article', article);
 app.use('/auth', auth);
-app.use('/goods/create', dev);
 
 app.use(Express.static('front'));
 app.use(BodyParser.urlencoded({ extended: true }));
@@ -35,16 +29,39 @@ app.param(function (param, option) {
 
 // route to trigger the capture
 app.get('/login', function (req, res) {
-  console.log(req)//ここでそれぞれのファイルのメソッドを実行して返すと思う。
-  res.send('OK')
+  console.log("getは成功")//ここでそれぞれのファイルのメソッドを実行して返すと思う。
+  var bodydata={"message":"OK!"}
+  res.send(bodydata)
 });
 
 // POST method route
 app.post('/login', function (req, res) {
-  console.log("頑張れ")//ここでそれぞれのファイルのメソッドを実行して返すと思う。
-  console.log(req.body)
-  res.send('POST request to the homepage')
+  //ここでそれぞれのファイルのメソッドを実行して返すと思う。
+  var bodydata={"message":"OK!"}
+  res.send(bodydata)
 })
+
+app.post('/goods', function (req, res) {
+  //ここでそれぞれのファイルのメソッドを実行して返すと思う。
+  console.log(req.body)
+  db.insert(req.body)
+  var bodydata={"message":"OK!"}
+  res.send(bodydata)
+})
+
+app.get('/goods/list', function (req, res) {
+  console.log("/goods/list")
+  var goods_list = db.find()
+  console.log(goods_list)
+  res.send(goods_list)
+})
+
+app.get('/goods/:id', function (req, res) {
+  console.log("/goods/:id成功？")
+  console.log(req.url)
+  res.send({"id":"A001!!!!"})
+})
+
 
 app.listen(3000, function () {
   console.log("http://localhost:3000");

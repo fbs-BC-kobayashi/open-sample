@@ -1,7 +1,7 @@
 import * as MongoDB from 'mongodb';
 
-const url = 'mongodb://localhost:27017';
-export const dbName = 'nekoblog';
+const url = 'mongodb://localhost/';
+export const dbName = 'Goods';
 
 export default function (callback: (err: MongoDB.MongoError, client: MongoDB.MongoClient, db: MongoDB.Db) => void) {
     const client = MongoDB.MongoClient;

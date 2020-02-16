@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 import * as moment from 'moment';
 
-import { Login } from '../models/login';
+import { Login } from '../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -44,4 +44,4 @@ export class AuthService {
       }
     );
   }
-}
+}*/

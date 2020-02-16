@@ -10,7 +10,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTabsModule} from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 // ルーティングによる画面遷移のために必要なモジュール
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -31,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 
 const ROUTE_TABLE: Routes = [
+  { path: '', component: AppComponent },
   { path: 'login', component: LoginComponent },
   { path: 'goods', component: GoodsComponent },
   { path: 'goods/create', component: CreateComponent },
@@ -67,6 +70,8 @@ const ROUTE_TABLE: Routes = [
     MatTabsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
 //    HttpClientService,
