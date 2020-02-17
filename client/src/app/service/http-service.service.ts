@@ -32,18 +32,19 @@ export class HttpService {
       .catch(this.errorHandler);
   }
 
-  public list(): Promise<any[]> {
+  public list() {
     console.log("list test!")
     // create APIにPOSTする
-    return this.http.get("/goods/list")
-      .toPromise()
-      .then((res) => {
-        // response の型は any ではなく class で型を定義した方が良いが ここでは簡便さから any としておく
-        console.log(res)
-        const response: any = res;
-        return response;
-      })
-      .catch(this.errorHandler);
+    var httpObj = this.http.get("/goods/list")
+    httpObj.subscribe(response => {
+      console.log("↓subscribe");
+      console.log(response);
+      return response;
+    }, error => {
+      //失敗時の処理
+      console.log(error);
+    });
+
   }
 
   public detail(bodydata: any): Promise<any[]> {

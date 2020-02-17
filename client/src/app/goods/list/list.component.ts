@@ -14,15 +14,8 @@ export class ListComponent implements OnInit {
   dataSource:any;
   constructor(private httpService: HttpService) {
     console.log("コンストラクタ実行中")
-    this.httpService.list()
-      .then(response => {
-        //成功時の処理
-        this.dataSource = response;
-        console.log(response)
-      }, error => {
-        //失敗時の処理
-        console.log(error);
-      });
+    var data = this.httpService.list()
+    console.log(data)
   }
   displayedColumns: string[] = ['goods_id', 'name', 'size', 'amount', 'note'];
 

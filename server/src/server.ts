@@ -35,7 +35,7 @@ app.get('/login', function (req, res) {
 });
 
 // POST method route
-app.post('/login', function (req, res) {
+app.post('/logink', function (req, res) {
   //ここでそれぞれのファイルのメソッドを実行して返すと思う。
   var bodydata={"message":"OK!"}
   res.send(bodydata)
@@ -49,11 +49,10 @@ app.post('/goods', function (req, res) {
   res.send(bodydata)
 })
 
-app.get('/goods/list', function (req, res) {
-  console.log("/goods/list")
-  var goods_list = db.find()
-  console.log(goods_list)
-  res.send(goods_list)
+app.get('/goods/list', async (req, res) => {
+  const result = await db.find()
+  console.log("result: "+result)
+  res.send(result)
 })
 
 app.get('/goods/:id', function (req, res) {
