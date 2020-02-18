@@ -51,7 +51,8 @@ app.post('/goods', function (req, res) {
 
 app.get('/goods/list', async (req, res) => {
   const result = await db.find()
-  console.log("result: "+result)
+  //var response=JSON.parse(result)
+  console.log("server_result: "+JSON.stringify(result))
   res.send(result)
 })
 
