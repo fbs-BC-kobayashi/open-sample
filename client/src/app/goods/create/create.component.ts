@@ -11,7 +11,7 @@ export class CreateComponent implements OnInit {
 
   constructor(private httpService: HttpService) { }
 
-  message:string[];
+  message: any;
   goods_form = new FormGroup({
     name: new FormControl('牛乳'),
     goods_id: new FormControl('A001'),
@@ -20,18 +20,19 @@ export class CreateComponent implements OnInit {
     note: new FormControl('特になし'),
   });
 
-  public createGoods(){
-    console.log(this.goods_form)
+  public createGoods() {
+    //console.log(this.goods_form)
     this.httpService.create(this.goods_form)
       .then(response => {
         //成功時の処理
-        this.message = response;
+        this.message = response["message"];
         console.log(this.message)
       }, error => {
         //失敗時の処理
         console.log(error);
       });
-    }
+  }
+
   ngOnInit() {
   }
 

@@ -11,6 +11,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTabsModule} from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import {MatSelectModule} from '@angular/material/select';
 // ルーティングによる画面遷移のために必要なモジュール
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -72,6 +73,7 @@ const ROUTE_TABLE: Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatSelectModule,
   ],
   providers: [
 //    HttpClientService,

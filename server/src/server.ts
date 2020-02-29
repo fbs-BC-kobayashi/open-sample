@@ -27,7 +27,7 @@ app.param(function (param, option) {
   }
 })
 
-// route to trigger the capture
+// ログイン
 app.get('/login', function (req, res) {
   console.log("getは成功")//ここでそれぞれのファイルのメソッドを実行して返すと思う。
   var bodydata={"message":"OK!"}
@@ -35,31 +35,56 @@ app.get('/login', function (req, res) {
 });
 
 // POST method route
-app.post('/logink', function (req, res) {
+app.post('/login', function (req, res) {
   //ここでそれぞれのファイルのメソッドを実行して返すと思う。
   var bodydata={"message":"OK!"}
   res.send(bodydata)
 })
-
+//登録
 app.post('/goods', function (req, res) {
   //ここでそれぞれのファイルのメソッドを実行して返すと思う。
   console.log(req.body)
   db.insert(req.body)
-  var bodydata={"message":"OK!"}
+  var bodydata={"message":"insert OK!"}
   res.send(bodydata)
 })
 
+//登録
+app.put('/goods/:id', function (req, res) {
+  //ここでそれぞれのファイルのメソッドを実行して返すと思う。
+  console.log(req.body)
+  db.update(req.body)
+  var bodydata={"message":"update OK!"}
+  res.send(bodydata)
+})
+
+
+app.post('/goods/serch', function (req, res) {
+  //ここでそれぞれのファイルのメソッドを実行して返すと思う。
+  console.log(req.body)
+  db.serch(req.body).then(result =>{//この then が必要だったんだ・・・！！！
+    res.send(result)
+  })
+})
+
 app.get('/goods/list', async (req, res) => {
-  const result = await db.find()
+  db.find().then(result =>{//この then が必要だったんだ・・・！！！
+    res.send(result)
+  })
   //var response=JSON.parse(result)
-  console.log("server_result: "+JSON.stringify(result))
-  res.send(result)
+  
+  
 })
 
 app.get('/goods/:id', function (req, res) {
-  console.log("/goods/:id成功？")
-  console.log(req.url)
-  res.send({"id":"A001!!!!"})
+  console.log("/goods/:id開始")
+  console.log(req.params.id)
+  var goods_id = req.params.id
+  db.find_one(goods_id).then(result =>{//この then が必要だったんだ・・・！！！
+    console.log(result)
+    res.send(result)
+  })
+
 })
 
 

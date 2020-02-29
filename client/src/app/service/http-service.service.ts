@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FormGroup, FormControl } from '@angular/forms';
 
 export interface goods {
   name: string
@@ -18,7 +17,7 @@ export class HttpService {
   configUrl = 'assets/config.json';
 
   constructor(private http: HttpClient) { }
-
+  //登録
   public create(bodydata: any): Promise<any[]> {
     console.log(bodydata.value)
     // create APIにPOSTする
@@ -31,26 +30,61 @@ export class HttpService {
       })
       .catch(this.errorHandler);
   }
+  //更新
+  public update(bodydata: any): Promise<any[]> {
+    console.log("goods_id="+bodydata.value.goods_id)
+    return this.http.put("/goods/" + bodydata.value.goods_id, bodydata.value)
+      .toPromise()
+      .then((res) => {
+        // response の型は any ではなく class で型を定義した方が良いが ここでは簡便さから any としておく
+        const response: any = res;
+        return response;
+      })
+      .catch(this.errorHandler);
+  }
 
-  public list() {
-    console.log("list test!")
+  public list(): Promise<any[]> {
+    return this.http.get("/goods/list")
+      .toPromise()
+      .then((res) => {
+        // response の型は any ではなく class で型を定義した方が良いが ここでは簡便さから any としておく
+        const response: any = res;
+        return response;
+      })
+      .catch(this.errorHandler);
+
+  }
+  public serch(bodydata: any): Promise<any[]> {
     // create APIにPOSTする
-    var httpObj = this.http.get("/goods/list")
-    httpObj.subscribe(response => {
-      console.log("↓subscribe");
-      console.log(response);
-      return response;
-    }, error => {
-      //失敗時の処理
-      console.log(error);
-    });
+    return this.http.post("/goods/serch",bodydata.value)
+      .toPromise()
+      .then((res) => {
+        // response の型は any ではなく class で型を定義した方が良いが ここでは簡便さから any としておく
+        const response: any = res;
+        return response;
+      })
+      .catch(this.errorHandler);
 
   }
 
-  public detail(bodydata: any): Promise<any[]> {
-    console.log(":id no test!")
-    // create APIにPOSTする
-    return this.http.get("/goods/A001")
+  /*
+    public list() {
+      console.log("list test!")
+      // create APIにPOSTする
+      var httpObj = this.http.get("/goods/list")
+      httpObj.subscribe(response => {
+        console.log("↓subscribe");
+        console.log(response);
+        return response;
+      }, error => {
+        //失敗時の処理
+        console.log(error);
+      });
+  
+    }
+  */
+  public detail(goods_id: any): Promise<any[]> {
+    return this.http.get("/goods/"+goods_id)
       .toPromise()
       .then((res) => {
         // response の型は any ではなく class で型を定義した方が良いが ここでは簡便さから any としておく
@@ -88,7 +122,6 @@ export class HttpService {
     return this.http.post('/login', bodydata, httpOptions)
       .toPromise()
       .then((result: any) => {
-        console.log("POSTから帰ったよ")
         // 認証結果がsuccessならトークンを返す
         if (result.result === 'success') {
           console.log("sccess!")
@@ -101,6 +134,7 @@ export class HttpService {
       }
       )
   }
+  
   private errorHandler(err) {
     console.log('Error occured.', err);
     return Promise.reject(err.message || err);

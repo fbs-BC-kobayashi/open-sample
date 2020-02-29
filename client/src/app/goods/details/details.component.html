@@ -3,38 +3,38 @@
         <div fxLayout="row" style="height: 75px">
             <div fxFlex fxLayoutAlign="center center">
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="商品名" disabled value="">
+                    <input matInput placeholder="商品ID" disabled value={{goods_detail.goods_id}}>
                 </mat-form-field>
             </div>
             <div fxFlex fxLayoutAlign="center center">
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="賞品ID" disabled value="">
+                    <input matInput placeholder="商品名" disabled value={{goods_detail.name}}>
                 </mat-form-field>
             </div>
             <div fxFlex fxLayoutAlign="center center">
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="サイズ" disabled value="">
+                    <input matInput placeholder="サイズ" disabled value={{goods_detail.size}}>
                 </mat-form-field>
             </div>
             <div fxFlex fxFlexFill fxLayoutAlign="center center">
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="価格" disabled value="">
+                    <input matInput placeholder="価格" disabled value={{goods_detail.amount}}>
                 </mat-form-field>
             </div>
             <div fxFlex fxLayoutAlign="center center">
                 <mat-form-field>
-                    <input matInput placeholder="備考" disabled value="">
+                    <input matInput placeholder="備考" disabled value={{goods_detail.note}}>
                 </mat-form-field>
             </div>
             <div fxLayout="row" style="height: 75px">
                 <div fxFlex fxFlexFill fxLayoutAlign="end center">
-                    <button mat-raised-button color="default" (click)="init()">
+                    <button mat-raised-button color="default" (click)="update()">
                         更新する
                     </button>
                 </div>
                 <div fxFlex fxFlexFill fxLayoutAlign="end center">
-                    <button mat-raised-button color="default" (click)="init()">
-                        一覧画面へ戻る
+                    <button mat-raised-button color="default" routerLink="/goods/list">
+                        戻る
                     </button>
                 </div>
             </div>

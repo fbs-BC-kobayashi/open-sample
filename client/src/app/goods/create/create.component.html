@@ -4,27 +4,27 @@
             <div fxLayout="row" style="height: 75px">
                 <div fxFlex fxLayoutAlign="center center">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="賞品ID" value="A001" formControlName="goods_id">
+                        <input matInput placeholder="賞品ID" formControlName="goods_id">
                     </mat-form-field>
                 </div>
                 <div fxFlex fxLayoutAlign="center center">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="商品名" value="牛乳" formControlName="name">
+                        <input matInput placeholder="商品名" formControlName="name">
                     </mat-form-field>
                 </div>
                 <div fxFlex fxLayoutAlign="center center">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="サイズ" value="255cm" formControlName="size">
+                        <input matInput placeholder="サイズ" formControlName="size">
                     </mat-form-field>
                 </div>
                 <div fxFlex fxFlexFill fxLayoutAlign="center center">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="価格" value="100" formControlName="amount">
+                        <input matInput placeholder="価格" formControlName="amount">
                     </mat-form-field>
                 </div>
                 <div fxFlex fxLayoutAlign="center center">
                     <mat-form-field>
-                        <input matInput placeholder="備考" value="ろくでなし" formControlName="note">
+                        <input matInput placeholder="備考" formControlName="note">
                     </mat-form-field>
                 </div>
                 <div fxFlex fxFlexFill fxLayoutAlign="center center">
@@ -35,7 +35,9 @@
             </div>
         </div>
     </div>
-    <p>
-        Form Value: {{ goods_form.value | json }}
-    </p>
+    <div fxLayout="row" style="height: 75px">
+        <div fxFlex fxFlexFill fxLayoutAlign="center center">
+            {{message}}
+        </div>
+    </div>
 </form>

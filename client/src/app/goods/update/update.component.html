@@ -1,1 +1,46 @@
-<p>update works!</p>
+<form [formGroup]="goods_form" (ngSubmit)="updateGoods()">
+    <div fxLayout="column" highlight="4-9">
+        <div fxFlex="75px">
+            <div fxLayout="row" style="height: 75px">
+                <div fxFlex fxLayoutAlign="center center">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="賞品ID" value={{goods_detail.goods_id}} disabled>
+                    </mat-form-field>
+                </div>
+                <div fxFlex fxLayoutAlign="center center">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="商品名" formControlName="name" value={{goods_detail.name}}>
+                    </mat-form-field>
+                </div>
+                <div fxFlex fxLayoutAlign="center center">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="サイズ" formControlName="size" value={{goods_detail.size}}>
+                    </mat-form-field>
+                </div>
+                <div fxFlex fxFlexFill fxLayoutAlign="center center">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="価格" formControlName="amount" value={{goods_detail.amount}}>
+                    </mat-form-field>
+                </div>
+                <div fxFlex fxLayoutAlign="center center">
+                    <mat-form-field>
+                        <input matInput placeholder="備考" formControlName="note" value={{goods_detail.note}}>
+                    </mat-form-field>
+                </div>
+                <div fxFlex fxFlexFill fxLayoutAlign="center center">
+                    <button mat-raised-button color="default" type="submit">
+                        更新する
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div fxLayout="row" style="height: 75px">
+        <div fxFlex fxFlexFill fxLayoutAlign="center center">
+            {{message}}
+        </div>
+    </div>
+
+</form>
